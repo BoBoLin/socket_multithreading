@@ -4,6 +4,9 @@ import threading
 from threading import Thread
 from SocketServer import ThreadingMixIn
 
+
+from sql import SQL_func
+
 #Multithreaded Python server : TCP Server Socket Thread Pool
 class ClientThread(Thread):
     def __init__(self, ip, port):
@@ -19,6 +22,8 @@ class ClientThread(Thread):
         if str(data) == "exit":
             global stop
             stop = True
+        SQL_func(data)
+
         csock.send("server got it.")
         """
         for t in threads:
@@ -28,8 +33,8 @@ class ClientThread(Thread):
         print "Multithreaded Python server : waiting for connections from TCP clients..."
 
 # Multithreaded Python server : TCP Server Socket Program Stub
-host = [host ip]
-port = [port]
+host = ""
+port = 
 BUFFER_SIZE = 20 # Usually 1024, but we need quick response
 
 try:
