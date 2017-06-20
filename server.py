@@ -20,10 +20,7 @@ class ClientThread(Thread):
             global stop
             stop = True
         csock.send("server got it.")
-        """
-        for t in threads:
-            print str(t)
-        """
+   
         print "-----------------------------------------------\n"
         print "Multithreaded Python server : waiting for connections from TCP clients..."
 
